@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:first_web/controllers/menu_controller.dart';
+import 'package:flutter/painting.dart';
 import '../../../constants.dart';
-import '../../../responsive.dart';
 import 'web_menu.dart';
 
 class Header extends StatelessWidget {
-  final MenuController _controller = Get.put(MenuController());
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +20,8 @@ class Header extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Text(
-                        "CloudEthix",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 40
-                        ),
+                      Container(
+                        child: Image.asset('assets/CloudEthix_logo.jpeg', fit: BoxFit.contain),
                       ),
                       const Spacer(),
                       WebMenu()

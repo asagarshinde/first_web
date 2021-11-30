@@ -9,7 +9,7 @@ class MenuController extends GetxController {
 
     GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-    List<String> get menuItems => ['Home', 'About Us', 'Blog', 'Contact Us'];
+    List<String> get menuItems => ['Home', 'About Us', 'Services', 'Blog', 'Contact Us'];
     GlobalKey<ScaffoldState> get scaffoldKey => _scaffoldKey;
 
     void setMenuIndex(int index){
