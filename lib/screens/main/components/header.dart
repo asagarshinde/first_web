@@ -9,7 +9,7 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: kDarkBlackColor,
+      color: const Color.fromRGBO(31, 49, 79, 1),
       child: SafeArea(
         child: Column(
           children: [

@@ -4,15 +4,18 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class MenuController extends GetxController {
-    RxInt _selectedIndex = 0.obs;
-    int get selectedIndex => _selectedIndex.value;
+  RxInt _selectedIndex = 0.obs;
 
-    GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  int get selectedIndex => _selectedIndex.value;
 
-    List<String> get menuItems => ['Home', 'About Us', 'Services', 'Blog', 'Contact Us'];
-    GlobalKey<ScaffoldState> get scaffoldKey => _scaffoldKey;
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-    void setMenuIndex(int index){
-        _selectedIndex.value = index;
-    }
+  List<String> get menuItems =>
+      ['Home', 'About Us', 'Services', 'Blog', 'Contact Us'];
+
+  GlobalKey<ScaffoldState> get scaffoldKey => _scaffoldKey;
+
+  void setMenuIndex(int index) {
+    _selectedIndex.value = index;
+  }
 }

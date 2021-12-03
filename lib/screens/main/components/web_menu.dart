@@ -1,5 +1,6 @@
 import 'package:first_web/constants.dart';
 import 'package:first_web/controllers/menu_controller.dart';
+import 'package:first_web/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -49,9 +50,6 @@ class _WebMenuItemState extends State<WebMenuItem> {
     } else if (!widget.isActive & _isHover) {
       return kPrimaryColor.withOpacity(0.4);
     }
-    else if(!_isHover){
-      return Colors.black;
-    }
     return Colors.transparent;
   }
 
@@ -61,6 +59,14 @@ class _WebMenuItemState extends State<WebMenuItem> {
       onTap: widget.press,
       onHover: (value) {
         setState(() {
+          if (Responsive.isMobile(context)) {
+            print("mobile");
+          } else if (Responsive.isDesktop(context)) {
+            print("desktop");
+          } else if (Responsive.isTablet(context)) {
+            print("tablet");
+          }
+          print(MediaQuery.of(context).size.width);
           _isHover = true;
         });
       },
