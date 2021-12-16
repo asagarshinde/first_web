@@ -6,6 +6,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 
+import 'package:first_web/responsive.dart';
+
+
 class WebMenu extends StatelessWidget {
   final MenuController _controller = Get.put(MenuController());
 
@@ -13,6 +16,7 @@ class WebMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Obx(() => Row(
           children: List.generate(
               _controller.menuItems.length,
@@ -44,7 +48,6 @@ class _WebMenuItemState extends State<WebMenuItem> {
   bool _isHover = false;
 
   Color _borderColor() {
-    print("isActive: ${widget.isActive}, _isHover: ${widget.text}");
     if (widget.isActive) {
       return kPrimaryColor;
     } else if (!widget.isActive & _isHover) {
@@ -56,7 +59,7 @@ class _WebMenuItemState extends State<WebMenuItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: widget.press,
+      onTap: () => Get.toNamed('/${widget.text}'),
       onHover: (value) {
         setState(() {
           if (Responsive.isMobile(context)) {

@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'CloudEthix',
       routes: {
-        'contact': (context) => ContactUsPage()
+        '/Home': (context) => MainScreen(),
+        '/Contact Us': (context) => ContactUsPage()
       },
       theme: ThemeData(
         primaryColor: kPrimaryColor,

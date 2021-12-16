@@ -6,14 +6,17 @@ import 'package:flutter/rendering.dart';
 class Bottom extends StatelessWidget {
   const Bottom({Key? key}) : super(key: key);
 
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(color: Color.fromRGBO(31, 49, 79, 1)),
       width: MediaQuery.of(context).size.width,
-      child: Row(
+      child: Flex(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
+        direction: Responsive.isMobile(context) ? Axis.vertical : Axis.horizontal,
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(25, 60, 8, 25),

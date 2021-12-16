@@ -1,9 +1,14 @@
+import 'package:first_web/controllers/menu_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:get/get.dart';
 import '../../../constants.dart';
+import '../../../responsive.dart';
 import 'web_menu.dart';
 
 class Header extends StatelessWidget {
+
+  final MenuController _controller = Get.put(MenuController());
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +25,22 @@ class Header extends StatelessWidget {
                 children: [
                   Row(
                     children: [
+                      if(!Responsive.isDesktop(context))
+                        IconButton(
+                          icon: const Icon(
+                            Icons.menu,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            _controller.openOrCloseDrawer();
+                          },
+                        ),
                       Container(
-                        child: Image.asset('assets/CloudEthix_logo.jpeg', fit: BoxFit.contain),
+                        child: Image.asset(
+                            'assets/CloudEthix_logo.jpeg', fit: BoxFit.contain),
                       ),
                       const Spacer(),
-                      WebMenu()
+                      if (Responsive.isDesktop(context)) WebMenu(),
                     ],
                   )
                 ],
@@ -36,3 +52,5 @@ class Header extends StatelessWidget {
     );
   }
 }
+
+
