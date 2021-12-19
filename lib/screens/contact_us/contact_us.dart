@@ -1,41 +1,13 @@
-import 'package:first_web/controllers/menu_controller.dart';
-import 'package:first_web/screens/main/components/header.dart';
-import 'package:first_web/screens/main/components/side_menu.dart';
+import 'package:first_web/screens/layout.dart';
 import 'package:flutter/material.dart';
-import 'package:mailer/mailer.dart';
-import 'package:mailer/smtp_server.dart';
+
 
 class ContactUsPage extends StatelessWidget {
-  MenuController _controller = MenuController();
-  ContactUsPage({Key? key}) : super(key: key);
+  const ContactUsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _controller.scaffoldKey,
-      drawer: SideMenu(),
-      body: Container(
-        color: Colors.white60,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Header(),
-              Container(
-                margin: const EdgeInsets.only(top: 20),
-                child: const Text(
-                  'Book a meeting',
-                  style: TextStyle(
-                      color: Color.fromRGBO(31, 49, 79, 1),
-                      fontSize: 30,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-              const EnquiryForm(),
-            ],
-          ),
-        ),
-      ),
-    );
+    return Layout(const EnquiryForm());
   }
 }
 
@@ -60,52 +32,6 @@ class _EnquiryFormState extends State<EnquiryForm> {
   String? message;
   String? numberOfEmployees;
 
-  localSend() async {
-    String username = 'asagarshinde@gmail.com';
-    String password = 'M@rv3l0us';
-
-    final smtpServer = gmail(username, password);
-    // Use the SmtpServer class to configure an SMTP server:
-    // final smtpServer = SmtpServer('smtp.domain.com');
-    // See the named arguments of SmtpServer for further configuration
-    // options.
-
-    // Create our message.
-    final message = Message()
-      ..from = Address(username, 'Your name')
-      ..recipients.add('destination@example.com')
-      ..ccRecipients.addAll(['destCc1@example.com', 'destCc2@example.com'])
-      ..bccRecipients.add(Address('bccAddress@example.com'))
-      ..subject = 'Test Dart Mailer library :: 😀 :: ${DateTime.now()}'
-      ..text = 'This is the plain text.\nThis is line 2 of the text part.'
-      ..html = "<h1>Test</h1>\n<p>Hey! Here's some HTML content</p>";
-
-    try {
-      final sendReport = await send(message, smtpServer);
-      print('Message sent: ' + sendReport.toString());
-    } on MailerException catch (e) {
-      print('Message not sent.');
-      for (var p in e.problems) {
-        print('Problem: ${p.code}: ${p.msg}');
-      }
-    }
-  }
-  // Future<void> send(Message message) async {
-  //   final Email _email = Email(
-  //     body: "First test mail from Flutter web",
-  //     subject: "testing from Flutter",
-  //     recipients: ['asagarshinde@gmail.com'],
-  //   );
-  //   String platformResponse;
-  //
-  //   try {
-  //     await FlutterEmailSender.send(_email);
-  //     platformResponse = 'success';
-  //   } catch (error) {
-  //     platformResponse = error.toString();
-  //   }
-  //   print(platformResponse);
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -191,11 +117,8 @@ class _EnquiryFormState extends State<EnquiryForm> {
                 ElevatedButton(
                     onPressed: () async {
                       _formKey.currentState!.save();
-                      print(firstName);
-                      print(_formKey.currentState.toString());
-                      localSend();
                     },
-                    child: Text('Submit')),
+                    child: const Text('Submit')),
                 const Text(
                     "We're committed to your privacy. HubSpot uses the information "
                         "you provide to us to contact you about our relevant "

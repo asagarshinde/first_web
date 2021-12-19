@@ -3,10 +3,6 @@ import 'package:first_web/controllers/menu_controller.dart';
 import 'package:first_web/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
-
-import 'package:first_web/responsive.dart';
 
 
 class WebMenu extends StatelessWidget {
@@ -59,7 +55,9 @@ class _WebMenuItemState extends State<WebMenuItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed('/${widget.text}'),
+      onTap: () {
+        Get.toNamed('/${widget.text}');
+        },
       onHover: (value) {
         setState(() {
           if (Responsive.isMobile(context)) {

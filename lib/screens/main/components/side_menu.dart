@@ -1,12 +1,11 @@
 import 'package:first_web/controllers/menu_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../constants.dart';
 
 class SideMenu extends StatelessWidget {
   final MenuController _controller = Get.put(MenuController());
+
   SideMenu({Key? key}) : super(key: key);
 
   @override
@@ -22,8 +21,8 @@ class SideMenu extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       horizontal: kDefaultPadding * 3.5),
                   child: Container(
-                    child: Image.asset(
-                        'assets/CloudEthix_logo.jpeg', fit: BoxFit.contain),
+                    child: Image.asset('assets/CloudEthix_logo.jpeg',
+                        fit: BoxFit.contain),
                   ),
                 ),
               ),
@@ -50,8 +49,8 @@ class DrawerItem extends StatefulWidget {
   final bool isActive;
   final VoidCallback press;
 
-  const DrawerItem({
-    Key ?key,
+  DrawerItem({
+    Key? key,
     required this.title,
     required this.isActive,
     required this.press,
@@ -62,6 +61,7 @@ class DrawerItem extends StatefulWidget {
 }
 
 class _DrawerItemState extends State<DrawerItem> {
+  final MenuController _controller = Get.put(MenuController());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -69,7 +69,11 @@ class _DrawerItemState extends State<DrawerItem> {
         contentPadding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
         selected: widget.isActive,
         selectedTileColor: const Color.fromRGBO(31, 49, 79, 1),
-        onTap: () => Get.toNamed('/${widget.title}'),
+        onTap: () {
+          print("Clicked ${widget.title}");
+          _controller.openOrCloseDrawer();
+          Get.toNamed('/${widget.title}');
+        },
         title: Text(
           widget.title,
           style: const TextStyle(color: Colors.white),
@@ -77,5 +81,5 @@ class _DrawerItemState extends State<DrawerItem> {
       ),
     );
   }
-}
 
+}

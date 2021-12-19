@@ -35,10 +35,8 @@ class Header extends StatelessWidget {
                             _controller.openOrCloseDrawer();
                           },
                         ),
-                      Container(
-                        child: Image.asset(
-                            'assets/CloudEthix_logo.jpeg', fit: BoxFit.contain),
-                      ),
+                      Image.asset(
+                          'assets/CloudEthix_logo.jpeg', fit: BoxFit.contain),
                       const Spacer(),
                       if (Responsive.isDesktop(context)) WebMenu(),
                     ],

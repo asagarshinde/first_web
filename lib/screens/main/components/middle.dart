@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Middle extends StatefulWidget {
   const Middle({Key? key}) : super(key: key);
@@ -20,23 +19,25 @@ class _MiddleState extends State<Middle> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                constraints: const BoxConstraints(
-                    maxWidth: 800, maxHeight: 240),
+                constraints:
+                    const BoxConstraints(maxWidth: 800, maxHeight: 240),
                 child: const Text(
                   "Help Challenge \nCritical Activities \n",
                   style: TextStyle(
-                      fontSize: 80,
-                      color: Color.fromRGBO(31, 49, 79, 1)),
+                    fontSize: 80,
+                    color: Color.fromRGBO(31, 49, 79, 1),
+                  ),
                 ),
               ),
               Container(
-                constraints: const BoxConstraints(
-                    maxHeight: 240, maxWidth: 500),
+                constraints:
+                    const BoxConstraints(maxHeight: 240, maxWidth: 500),
                 child: const Text(
                   "we are experience professionals who understand that IT services is changing, and are true partners who care about your success",
                   style: TextStyle(
-                      fontSize: 20,
-                      color: Color.fromRGBO(31, 49, 79, 1)),
+                    fontSize: 20,
+                    color: Color.fromRGBO(31, 49, 79, 1),
+                  ),
                 ),
               ),
               const SizedBox(
