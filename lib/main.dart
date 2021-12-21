@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:first_web/constants.dart';
 import 'package:first_web/controllers/menu_controller.dart';
 import 'package:first_web/screens/contact_us/contact_us.dart';
@@ -12,7 +10,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  Get.put(MenuController());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

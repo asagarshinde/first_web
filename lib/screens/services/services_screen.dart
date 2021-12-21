@@ -1,14 +1,12 @@
-import 'package:first_web/constants.dart';
 import 'package:first_web/screens/layout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class ServiceScreen extends StatelessWidget {
   const ServiceScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Layout(
+    return MyLayout(
       SingleChildScrollView(
         child: Container(
           color: Colors.white60,
@@ -16,34 +14,32 @@ class ServiceScreen extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        const Text(
-                          "Devops",
+                  Column(
+                    children: [
+                      const Text(
+                        "Devops",
+                        style: TextStyle(
+                            color: Color.fromRGBO(31, 49, 79, 1),
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(20.0),
+                        constraints: BoxConstraints(
+                            maxWidth:
+                                MediaQuery.of(context).size.width * 0.5),
+                        child: const Text(
+                          "Achieve a greater business agility and a faster time to market by eliminating bottlenecks in software development by leveraging our DevOps services. Continuous Delivery makes staying ahead of the competitors and impressing your customers with products they really want.",
                           style: TextStyle(
-                              color: Color.fromRGBO(31, 49, 79, 1),
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(20.0),
-                          constraints: BoxConstraints(
-                              maxWidth:
-                                  MediaQuery.of(context).size.width * 0.5),
-                          child: const Text(
-                            "Achieve a greater business agility and a faster time to market by eliminating bottlenecks in software development by leveraging our DevOps services. Continuous Delivery makes staying ahead of the competitors and impressing your customers with products they really want.",
-                            style: TextStyle(
-                              color: Color.fromRGBO(31, 49, 79, 1),
-                              fontSize: 20,
-                            ),
+                            color: Color.fromRGBO(31, 49, 79, 1),
+                            fontSize: 20,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   Container(
                     constraints: BoxConstraints(
@@ -96,34 +92,32 @@ class ServiceScreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        const Text(
-                          "Cloudops",
+                  Column(
+                    children: [
+                      const Text(
+                        "Cloudops",
+                        style: TextStyle(
+                            color: Color.fromRGBO(31, 49, 79, 1),
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(20.0),
+                        constraints: BoxConstraints(
+                            maxWidth:
+                            MediaQuery.of(context).size.width * 0.5),
+                        child: const Text(
+                          "We work towards keeping the desired state of your Cloud workload through a proactive approach with securing and maintaining workloads in the Cloud. Our engineers ensure that everything will continue working as planned and function effectively in the Cloud.",
                           style: TextStyle(
-                              color: Color.fromRGBO(31, 49, 79, 1),
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(20.0),
-                          constraints: BoxConstraints(
-                              maxWidth:
-                              MediaQuery.of(context).size.width * 0.5),
-                          child: const Text(
-                            "We work towards keeping the desired state of your Cloud workload through a proactive approach with securing and maintaining workloads in the Cloud. Our engineers ensure that everything will continue working as planned and function effectively in the Cloud.",
-                            style: TextStyle(
-                              color: Color.fromRGBO(31, 49, 79, 1),
-                              fontSize: 20,
-                            ),
+                            color: Color.fromRGBO(31, 49, 79, 1),
+                            fontSize: 20,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   Container(
                     constraints: BoxConstraints(

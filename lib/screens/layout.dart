@@ -1,22 +1,35 @@
 import 'package:first_web/controllers/menu_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:get/get.dart';
 import 'main/components/bottom.dart';
 import 'main/components/header.dart';
 import 'main/components/side_menu.dart';
 
-
-class Layout extends StatelessWidget {
+class MyLayout extends StatefulWidget {
 
   Widget page;
-  Layout(this.page);
+  MyLayout(this.page, {Key? key}) : super(key: key);
 
+  @override
+  State<MyLayout> createState() => _MyLayoutState();
+}
+
+class _MyLayoutState extends State<MyLayout> {
+  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  // GlobalKey<ScaffoldState> get scaffoldKey => _scaffoldKey;
   final MenuController controller = Get.put(MenuController());
+
   // final controller = Get.find();
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        key: controller.scaffoldKey,
+        preferredSize: Size( MediaQuery.of(context).size.width,100),
+        child: Header(),
+      ),
       key: controller.scaffoldKey,
       drawer: SideMenu(),
       body: Container(
@@ -24,8 +37,8 @@ class Layout extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Header(),
-              page,
+              // Header(),
+              widget.page,
               const Bottom()
             ],
           ),

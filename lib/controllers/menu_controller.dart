@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MenuController extends GetxController {
+
   final RxInt _selectedIndex = 0.obs;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -15,7 +16,6 @@ class MenuController extends GetxController {
   void setMenuIndex(int index) {
     _selectedIndex.value = index;
   }
-
 
   void openOrCloseDrawer() {
 

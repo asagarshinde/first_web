@@ -1,9 +1,7 @@
 import 'package:first_web/constants.dart';
 import 'package:first_web/controllers/menu_controller.dart';
-import 'package:first_web/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 class WebMenu extends StatelessWidget {
   final MenuController _controller = Get.put(MenuController());
@@ -12,16 +10,18 @@ class WebMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    return Obx(() => Row(
-          children: List.generate(
-              _controller.menuItems.length,
-              (index) => WebMenuItem(
-                    text: _controller.menuItems[index],
-                    isActive: index == _controller.selectedIndex,
-                    press: () => _controller.setMenuIndex(index),
-                  )),
-        ));
+    return Obx(
+      () => Row(
+        children: List.generate(
+          _controller.menuItems.length,
+          (index) => WebMenuItem(
+            text: _controller.menuItems[index],
+            isActive: index == _controller.selectedIndex,
+            press: () => _controller.setMenuIndex(index),
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -56,20 +56,17 @@ class _WebMenuItemState extends State<WebMenuItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        // Get.reset();
+        // Get.offAndToNamed('/${widget.text}');
+        print(Get.keys.entries.toString());
         Get.toNamed('/${widget.text}');
-        },
+      },
       onHover: (value) {
-        setState(() {
-          if (Responsive.isMobile(context)) {
-            print("mobile");
-          } else if (Responsive.isDesktop(context)) {
-            print("desktop");
-          } else if (Responsive.isTablet(context)) {
-            print("tablet");
-          }
-          print(MediaQuery.of(context).size.width);
-          _isHover = true;
-        });
+        setState(
+          () {
+            _isHover = true;
+          },
+        );
       },
       child: AnimatedContainer(
         duration: kDefaultDuration,

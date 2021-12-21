@@ -12,7 +12,6 @@ import 'components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
   // final MenuController _controller = Get.put(MenuController());
-
   const MainScreen({Key? key}) : super(key: key);
 
   getPageView(context) {
@@ -31,6 +30,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Layout(getPageView(context));
+    return MyLayout(getPageView(context));
   }
 }

@@ -7,7 +7,7 @@ class ContactUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Layout(const EnquiryForm());
+    return MyLayout(const EnquiryForm());
   }
 }
 
